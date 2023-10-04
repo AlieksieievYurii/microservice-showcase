@@ -3,9 +3,10 @@ This is authentication service
 """
 
 import os
+import datetime
+
 from flask import Flask, request
 from flask_mysqldb import MySQL
-import datetime
 import jwt
 
 server = Flask(__name__)
