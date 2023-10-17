@@ -86,6 +86,8 @@ def validate():
         )
     except:
         return "not athorized", 401
+    
+    return decoded, 200
 
 
 if __name__ == "__main__":
