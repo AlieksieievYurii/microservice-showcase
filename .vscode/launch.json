@@ -1,0 +1,24 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Run Test Auth Service",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "env": {
+                "JWT_SECRET": "1234234weferga124r4",
+                "MYSQL_HOST": "localhost",
+                "MYSQL_USER": "root",
+                "MYSQL_PASSWORD": "admin", 
+                "MYSQL_DB": "auth",
+                "MYSQL_PORT": "3306"
+              }
+        }
+    ]
+}
