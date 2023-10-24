@@ -42,6 +42,10 @@ def upload():
     Asynchromous endpoint for performing upload target video file
     """
     access, err = validate.token(request)
+
+    if err:
+        return err
+
     access = json.loads(access)
 
     if access["admin"]:
