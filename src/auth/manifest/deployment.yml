@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: auth
-          image: alieksieiev/microservices-showcase-auth-service:latest
+          image: alieksieiev/microservices-showcase-auth-service:1.0
           ports:
             - containerPort: 5000
           envFrom:
