@@ -11,7 +11,7 @@ def token(request):
         return None, ("Missing credentials", 401)
 
     response = requests.post(
-        f"http://{os.environ.get('AUTH_SVC_ADDRESS')}/validate", auth=user_token
+        f"http://{os.environ.get('AUTH_SVC_ADDRESS')}/validate", headers={'Authorization': user_token}
     )
 
     if response.status_code == 200:
