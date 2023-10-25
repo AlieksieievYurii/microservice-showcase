@@ -78,7 +78,7 @@ def validate():
     if not encoded_jwt:
         return "missing credentials", 401
 
-    encoded_jwt = encoded_jwt.split[1]
+    encoded_jwt = encoded_jwt.split()[1]
 
     try:
         decoded = jwt.decode(

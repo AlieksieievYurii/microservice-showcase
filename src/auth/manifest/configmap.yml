@@ -3,7 +3,8 @@ kind: ConfigMap
 metadata:
   name: auth-configmap
 data:
-  MYSQL_HOST: placeholder
-  MYSQL_USER: auth_user
+  MYSQL_HOST: mysql
+  MYSQL_USER: auth_service
   MYSQL_PORT: "3306"
+  MYSQL_DB: auth
   
