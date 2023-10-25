@@ -1,6 +1,6 @@
-import pika, sys, os, time. json, tempfile
+import pika, sys, os, time, json, tempfile
 from pymongo import MongoClient
-from bson.ojectid import ObjectId
+from bson.objectid import ObjectId
 import gridfs
 import moviepy.editor
 
@@ -12,7 +12,7 @@ def convert(message, fs_videos, fs_mp3s, channel):
     audio = moviepy.editor.VideoFileClip(tf.name).audio
     tf.close()
 
-    tf_path = tempfile.gettempdir() + f'{message['video_fid']}.mp3'
+    tf_path = tempfile.gettempdir() + f"/{message['video_fid']}.mp3"
     audio.write_audiofile(tf_path)
 
     f = open(tf_path, 'rb')
@@ -34,7 +34,7 @@ def convert(message, fs_videos, fs_mp3s, channel):
         return "failed to publish message"
 
 def main() -> None:
-    client = MongoClient("empty", 27017)
+    client = MongoClient("mongodb", 27017)
     db_videos = client.videos
     db_mp3s = client.mp3s
 
@@ -42,9 +42,9 @@ def main() -> None:
     fs_mp3s = gridfs.GridFS(db_mp3s)
 
     connection = pika.BlockingConnection(
-        pika.ConnectionParameter(host="rabbitmq")
+        pika.ConnectionParameters(host="rabbitmq")
     )
-    channel = connection.channel
+    channel = connection.channel()
 
     def callback(ch, method, properties, body):
         err = convert(body, fs_videos, fs_mp3s, ch)
