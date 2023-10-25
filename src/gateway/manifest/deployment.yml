@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: gateway
-          image: alieksieiev/microservices-showcase-gateway-service:1.3
+          image: alieksieiev/microservices-showcase-gateway-service:1.4
           envFrom:
             - configMapRef:
                 name: gateway-configmap
